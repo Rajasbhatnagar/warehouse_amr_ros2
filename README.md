@@ -1,9 +1,10 @@
-# warehouse_amr_ros2
 <div align="center">
 
-# 🤖 Autonomous Warehouse Navigation Robot
+# Autonomous Warehouse Navigation Robot
 
-### ROS2 Humble · Gazebo · Nav2 · SLAM · YOLOv11
+### *Bridging Classical Robotics with Modern AI Perception*
+
+**ROS2 Humble · Gazebo · Nav2 · SLAM · YOLOv11 · C++**
 
 [![ROS2](https://img.shields.io/badge/ROS2-Humble-blue?style=for-the-badge&logo=ros&logoColor=white)](https://docs.ros.org/en/humble/)
 [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04_LTS-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://ubuntu.com/)
@@ -11,30 +12,54 @@
 [![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-*A fully autonomous mobile robot for warehouse operations — built with ROS2, real-time SLAM mapping, Nav2 path planning, and a YOLOv11 perception layer for dynamic obstacle avoidance.*
+🚀 *An end-to-end autonomous mobile robot capable of mapping, navigating, and dynamically reacting to real-world obstacles in a warehouse environment.*
 
 ---
 
-**[Demo Video](#demo) · [System Architecture](#system-architecture) · [Setup](#installation) · [Results](#results)**
+**[Why This Exists](#-why-this-project-exists) · [Demo](#-demo) · [Architecture](#-system-architecture) · [Setup](#-installation) · [Results](#-performance)**
 
 </div>
 
 ---
 
-## What This Robot Does
+## 🚀 Why This Project Exists
 
-This AMR (Autonomous Mobile Robot) operates inside a simulated warehouse environment and can:
+Modern warehouses are rapidly automating — but most robotic systems still struggle with **dynamic, unpredictable environments**.
 
-- **Map** its environment autonomously using LiDAR-based SLAM
-- **Localize** itself on a saved map using AMCL (Adaptive Monte Carlo Localization)
-- **Navigate** to any goal point with obstacle-aware global + local path planning via Nav2
-- **Detect** dynamic objects in real time using a YOLOv11 perception model
-- **Re-route** on the fly when detections are injected as dynamic obstacles into the Nav2 costmap
-- **Execute tasks** — navigate sequentially to shelf waypoints and return home, fully autonomously
+This project was built to answer one question:
+
+> **Can we combine classical robotics (SLAM + Nav2) with modern AI (YOLOv11) to create a truly adaptive navigation system?**
+
+Instead of treating perception and navigation as separate systems, this robot **closes the loop** — detecting obstacles in real time and injecting them directly into the navigation pipeline.
 
 ---
 
-## Demo
+## ⚡ What Makes This Different
+
+This is not just a ROS2 demo.
+
+It is a **fully integrated autonomous system** where:
+
+- Perception actively **modifies navigation behavior**
+- Planning adapts **in real time to dynamic objects**
+- The robot executes **multi-step warehouse tasks autonomously**
+
+In short: **this is how real robots should behave — not just follow static maps.**
+
+---
+
+## 🧠 System Capabilities
+
+- 🗺️ **Autonomous Mapping** — LiDAR-based SLAM builds an unknown environment in real time
+- 📍 **Robust Localization** — AMCL particle filter on a saved map
+- 🧭 **Goal-based Navigation** — Nav2 with A* global planner + DWA local planner
+- 👁️ **Real-time Object Detection** — YOLOv11 running on the onboard camera stream
+- 🔄 **Dynamic Replanning** — YOLO detections injected live into Nav2 costmap
+- 📦 **Task Execution Engine** — C++ node for autonomous multi-waypoint missions
+
+---
+
+## 🎥 Demo
 
 > 📹 **[Watch the 90-second full-stack demo](demo/full_demo.mp4)**
 
@@ -42,33 +67,35 @@ This AMR (Autonomous Mobile Robot) operates inside a simulated warehouse environ
 |:---:|:---:|:---:|
 | ![SLAM](demo/slam_mapping.gif) | ![Nav2](demo/nav2_waypoints.gif) | ![YOLO](demo/yolo_avoidance.gif) |
 
+> The demo showcases the **full perception → planning → control loop in action.**
+
 ---
 
-## System Architecture
+## 🏗️ System Architecture
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                        SENSOR LAYER                              │
-│   ┌─────────────┐         ┌──────────────────┐                  │
+│   ┌─────────────┐         ┌──────────────────┐                   │
 │   │  LiDAR      │         │  RGB Camera       │                  │
 │   │  /scan      │         │  /camera/image_raw│                  │
-│   └──────┬──────┘         └────────┬─────────┘                  │
+│   └──────┬──────┘         └────────┬─────────┘                   │
 └──────────┼──────────────────────────┼───────────────────────────┘
            │                          │
 ┌──────────▼──────────┐   ┌──────────▼──────────────────────────┐
 │   SLAM / LOCALIZATION│   │       PERCEPTION LAYER               │
 │                      │   │                                      │
 │  slam_toolbox        │   │  yolo_perception_node (C++)          │
-│  ├─ Build map        │   │  ├─ YOLOv11 inference               │
-│  └─ Save map.pgm     │   │  ├─ 2D bbox → 3D PoseArray          │
+│  ├─ Build map        │   │  ├─ YOLOv11 inference                │
+│  └─ Save map.pgm     │   │  ├─ 2D bbox → 3D PoseArray           │
 │                      │   │  └─ /detected_objects                │
 │  AMCL (Nav2)         │   └──────────────┬───────────────────────┘
 │  └─ Localize on map  │                  │
 └──────────┬───────────┘                  │
            │                              │
 ┌──────────▼──────────────────────────────▼───────────────────────┐
-│                     NAVIGATION LAYER (Nav2)                      │
-│                                                                  │
+│                     NAVIGATION LAYER (Nav2)                     │
+│                                                                 │
 │  ┌──────────────────┐      ┌──────────────────────────────────┐ │
 │  │  Global Costmap  │      │  Local Costmap                   │ │
 │  │  ├─ Static layer │      │  ├─ Obstacle layer (LiDAR)       │ │
@@ -77,15 +104,15 @@ This AMR (Autonomous Mobile Robot) operates inside a simulated warehouse environ
 │           │                └──────────────┬───────────────────┘ │
 │  ┌────────▼─────────┐      ┌──────────────▼───────────────────┐ │
 │  │  Global Planner  │      │  Local Planner (DWA)             │ │
-│  │  NavFn (A*)      │─────▶│  Real-time trajectory adjustment  │ │
+│  │  NavFn (A*)      │─────▶│  Real-time trajectory adjustment │ │
 │  └──────────────────┘      └──────────────────────────────────┘ │
 └──────────────────────────────────────────────────────────────────┘
            │
 ┌──────────▼──────────────────────────────────────────────────────┐
 │                       CONTROL LAYER                              │
 │                                                                  │
-│  ros2_control ── diff_drive_controller ── /cmd_vel              │
-│  PID controller (custom C++) ── velocity control                 │
+│  ros2_control ── diff_drive_controller ── /cmd_vel               │
+│  Custom PID controller (C++) ── velocity control                 │
 └──────────────────────────────────────────────────────────────────┘
            │
 ┌──────────▼──────────────────────────────────────────────────────┐
@@ -100,7 +127,20 @@ This AMR (Autonomous Mobile Robot) operates inside a simulated warehouse environ
 
 ---
 
-## Package Structure
+## 🛠️ Tech Stack
+
+| Domain | Technologies |
+|---|---|
+| Robotics | ROS2 Humble, Nav2, slam_toolbox |
+| Simulation | Gazebo Classic (gz11) |
+| Programming | C++ 17, Python 3.10 |
+| Perception | YOLOv11 |
+| Control | Custom C++ PID Controller, ros2_control |
+| System Design | TF2, Costmaps, ROS2 Action Servers |
+
+---
+
+## 📁 Package Structure
 
 ```
 warehouse-amr-ros2/
@@ -159,30 +199,32 @@ warehouse-amr-ros2/
 
 ---
 
-## Robot Specifications
+## 👨‍💻 My Contributions
 
-| Component | Specification |
-|---|---|
-| Drive System | Differential drive, 2× 150mm wheels |
-| Chassis | 500 × 400 × 150mm (Fusion 360 CAD) |
-| LiDAR | RPLiDAR A2 — 360°, 12m range, 10Hz |
-| Camera | 640×480 RGB, 30fps |
-| Controller | ros2_control diff_drive_controller |
+This project was built **from the ground up**, including:
 
-## Navigation Stack
-
-| Module | Implementation |
-|---|---|
-| SLAM | slam_toolbox (online async mode) |
-| Localization | AMCL — particle filter, 500 particles |
-| Global Planner | NavFn (A* algorithm) |
-| Local Planner | DWA (Dynamic Window Approach) |
-| Costmap | 2D, 0.05m resolution, 5m local window |
-| Inflation Radius | 0.35m (tuned for warehouse corridors) |
+- Designing the complete ROS2 package architecture
+- Implementing the **YOLO → Nav2 costmap integration pipeline**
+- Developing a **custom C++ PID controller**
+- Building the warehouse simulation environment in Gazebo
+- Designing the robot chassis in Fusion 360 and exporting to URDF
+- Tuning the full navigation stack for real-time performance
+- Managing TF trees and multi-node ROS2 communication
 
 ---
 
-## Installation
+## 🧠 Engineering Challenges
+
+This project wasn't plug-and-play — key challenges included:
+
+- ⚠️ **Bridging perception and navigation** — converting YOLO 2D bounding boxes into 3D map-frame positions and injecting them as live Nav2 obstacles
+- ⚙️ **Real-time constraints** — maintaining low latency while running SLAM + Nav2 + YOLO simultaneously
+- 🧭 **Planner tuning** — achieving smooth, collision-free navigation through narrow warehouse corridors
+- 🔁 **TF & coordinate frame debugging** — resolving misalignments between sensor frame, odom frame, and map frame
+
+---
+
+## ⚙️ Installation
 
 ### Prerequisites
 
@@ -202,17 +244,11 @@ sudo apt install ros-humble-gazebo-ros-pkgs \
 ### Build
 
 ```bash
-# Clone the repository
 git clone https://github.com/[your-username]/warehouse-amr-ros2.git
 cd warehouse-amr-ros2
 
-# Install dependencies
 rosdep install --from-paths src --ignore-src -r -y
-
-# Build
 colcon build --symlink-install
-
-# Source
 source install/setup.bash
 ```
 
@@ -229,15 +265,13 @@ docker run -it \
 
 ---
 
-## Usage
+## 🚀 Usage
 
-### 1. Launch Simulation
+### 1. Launch Full Simulation
 
 ```bash
 ros2 launch amr_bringup full_system.launch.py
 ```
-
-Starts Gazebo warehouse world + robot spawn + RViz2.
 
 ### 2. Build a Map (SLAM Mode)
 
@@ -245,17 +279,16 @@ Starts Gazebo warehouse world + robot spawn + RViz2.
 # Terminal 2 — start SLAM
 ros2 launch amr_navigation slam.launch.py
 
-# Terminal 3 — drive the robot to map the environment
+# Terminal 3 — drive manually to map the environment
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
-# Save the map when done
+# Save when done
 ros2 run nav2_map_server map_saver_cli -f maps/warehouse_map
 ```
 
 ### 3. Autonomous Navigation
 
 ```bash
-# Launch Nav2 with saved map
 ros2 launch amr_navigation navigation.launch.py map:=maps/warehouse_map.yaml
 
 # Send a goal from terminal
@@ -263,7 +296,7 @@ ros2 topic pub /goal_pose geometry_msgs/PoseStamped \
   "{header: {frame_id: 'map'}, pose: {position: {x: 3.0, y: 1.5}}}"
 ```
 
-### 4. Run Full Warehouse Task (Waypoints)
+### 4. Run Full Warehouse Task (Multi-Waypoint)
 
 ```bash
 # Navigates: Entrance → Shelf A → Shelf B → Home
@@ -279,19 +312,19 @@ ros2 run amr_perception yolo_perception_node \
 
 ---
 
-## Results
+## 📊 Performance
 
-| Metric | Value |
+| Metric | Result |
 |---|---|
-| Map accuracy (SLAM vs ground truth) | ~96% |
-| Goal success rate (Nav2, 50 runs) | 94% |
-| Average replanning time on detection | ~180ms |
-| YOLO inference latency | ~35ms (CPU) |
-| Max navigation speed | 0.3 m/s |
+| SLAM Accuracy | ~96% |
+| Navigation Success Rate | 94% (50 runs) |
+| Replanning Time on Detection | ~180ms |
+| YOLO Inference Latency | ~35ms (CPU) |
+| Max Safe Speed | 0.3 m/s |
 
 ---
 
-## Class Requirements Coverage
+## ✅ Class Requirements Coverage
 
 | Requirement | Status | Implementation |
 |---|---|---|
@@ -306,7 +339,17 @@ ros2 run amr_perception yolo_perception_node \
 
 ---
 
-## References
+## 🔮 Future Work
+
+- 🚀 Deploy on real hardware (Jetson Nano + RPLiDAR A2)
+- ⚡ TensorRT optimization for faster YOLO inference
+- 🤖 Multi-robot coordination and fleet management
+- 📈 Dynamic obstacle tracking using Kalman Filters
+- 🌐 Web dashboard for live mission monitoring
+
+---
+
+## 📚 References
 
 - [ROS2 Humble Documentation](https://docs.ros.org/en/humble/)
 - [Nav2 Documentation](https://navigation.ros.org/)
@@ -317,12 +360,22 @@ ros2 run amr_perception yolo_perception_node \
 
 ---
 
+## 👋 About Me
+
+I'm **Rajas Bhatnagar**, a Computer Engineering student focused on building:
+
+- 🤖 Autonomous Systems
+- 🧠 AI-driven Robotics
+- ⚙️ Real-time intelligent systems
+
+I enjoy solving problems where **software meets the physical world.**
+
+- 💼 Open to internships in Robotics / AI / Systems
+- 🤝 Open to collaborations and research
+
 <div align="center">
 
-**Rajas Bhatnagar**
-*Autonomous Systems · Computer Vision · ROS2*
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/your-profile)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github)](https://github.com/your-username)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/rajas-bhatnagar/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github)](https://github.com/Rajasbhatnagar/)
 
 </div>
