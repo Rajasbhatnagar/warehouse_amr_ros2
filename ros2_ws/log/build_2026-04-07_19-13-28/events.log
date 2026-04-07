@@ -1,0 +1,232 @@
+[0.000000] (-) TimerEvent: {}
+[0.000862] (tf2_demo_cpp) JobQueued: {'identifier': 'tf2_demo_cpp', 'dependencies': OrderedDict()}
+[0.000926] (tf2_demo_cpp) JobStarted: {'identifier': 'tf2_demo_cpp'}
+[0.011786] (tf2_demo_cpp) JobProgress: {'identifier': 'tf2_demo_cpp', 'progress': 'cmake'}
+[0.013219] (tf2_demo_cpp) JobProgress: {'identifier': 'tf2_demo_cpp', 'progress': 'build'}
+[0.014069] (tf2_demo_cpp) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/build/tf2_demo_cpp', '--', '-j12', '-l12'], 'cwd': '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/build/tf2_demo_cpp', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'rajasbhatnagar'), ('GIT_ASKPASS', '/home/rajasbhatnagar/.vscode-server/bin/e7fb5e96c0730b9deb70b33781f98e2f35975036/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rajasbhatnagar'), ('OLDPWD', '/home/rajasbhatnagar'), ('TERM_PROGRAM_VERSION', '1.114.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-508452a8-c496-44bb-9379-cab049760da2.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/rajasbhatnagar/.vscode-server/bin/e7fb5e96c0730b9deb70b33781f98e2f35975036/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/rajasbhatnagar/.vscode-server/bin/e7fb5e96c0730b9deb70b33781f98e2f35975036/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rajasbhatnagar'), ('NAME', 'rajas'), ('WSL_INTEROP', '/run/WSL/2291_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/rajasbhatnagar/.vscode-server/bin/e7fb5e96c0730b9deb70b33781f98e2f35975036/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/rajas/AppData/Local/Programs/Microsoft VS Code:/mnt/c/Program Files (x86)/Rockwell Software/RSCommon:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp:/mnt/c/Program Files/Python311/Scripts/:/mnt/c/Program Files/Python311/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/d/MATLAB/bin:/mnt/c/mingw64/bin:/mnt/d/flutter/bin:/mnt/c/:/mnt/d/andriod studio flutter/Git/cmd:/mnt/c/Git/bin:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Users/rajas/OneDrive/Desktop/mlsc project 2025/LOGO_GENERATOR/team-logo-generator/msys2 folder/mingw64/bin/libcairo-2.dll:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR:/mnt/c/mingw64/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/:/mnt/c/msys64/mingw64/bin:/mnt/c/msys64/mingw64/bin/python.exe:/mnt/c/Program Files (x86)/Common Files/Rockwell/:/mnt/c/Program Files/Cloudflare/Cloudflare WARP/:/mnt/c/Users/rajas/AppData/Local/Programs/Python/Python39-32/Scripts/:/mnt/c/Users/rajas/AppData/Local/Programs/Python/Python39-32/:/mnt/c/Users/rajas/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/rajas/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/d/andriod studio flutter/flutter/bin:/mnt/c/Users/rajas/AppData/Local/GitHubDesktop/bin:/mnt/d/mongo/:/mnt/c/Users/rajas/AppData/Local/Microsoft/WinGet/Links:/mnt/c/Users/rajas/AppData/Roaming/npm:/mnt/c/Users/rajas/AppData/Roaming/Python/Python311/Scripts/wheel.exe:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp:/mnt/c/Users/rajas/OneDrive/Desktop/aria2 (drdo)/aria2-1.37.0-win-64bit-build1:/mnt/c/Users/rajas/AppData/Roaming/Python/Python311/Scripts:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ccd3e3b96d.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/build/tf2_demo_cpp'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp:/opt/ros/humble'), ('WSLENV', 'VSCODE_WSL_EXT_LOCATION/up')]), 'shell': False}
+[0.053053] (tf2_demo_cpp) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.100101] (-) TimerEvent: {}
+[0.188811] (tf2_demo_cpp) StdoutLine: {'line': b'-- Found rclcpp: 16.0.18 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.200411] (-) TimerEvent: {}
+[0.303672] (-) TimerEvent: {}
+[0.407191] (-) TimerEvent: {}
+[0.510567] (-) TimerEvent: {}
+[0.545207] (tf2_demo_cpp) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.548143] (tf2_demo_cpp) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.556329] (tf2_demo_cpp) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.569329] (tf2_demo_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.584075] (tf2_demo_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.613340] (-) TimerEvent: {}
+[0.624694] (tf2_demo_cpp) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.627406] (tf2_demo_cpp) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.714106] (-) TimerEvent: {}
+[0.817701] (-) TimerEvent: {}
+[0.921033] (-) TimerEvent: {}
+[1.021744] (-) TimerEvent: {}
+[1.122152] (-) TimerEvent: {}
+[1.222509] (-) TimerEvent: {}
+[1.322902] (-) TimerEvent: {}
+[1.423377] (-) TimerEvent: {}
+[1.524943] (-) TimerEvent: {}
+[1.625688] (-) TimerEvent: {}
+[1.726053] (-) TimerEvent: {}
+[1.830747] (-) TimerEvent: {}
+[1.940854] (-) TimerEvent: {}
+[2.050978] (-) TimerEvent: {}
+[2.161246] (-) TimerEvent: {}
+[2.261999] (-) TimerEvent: {}
+[2.362360] (-) TimerEvent: {}
+[2.462743] (-) TimerEvent: {}
+[2.563712] (-) TimerEvent: {}
+[2.665827] (-) TimerEvent: {}
+[2.766746] (-) TimerEvent: {}
+[2.867227] (-) TimerEvent: {}
+[2.972473] (-) TimerEvent: {}
+[3.077467] (-) TimerEvent: {}
+[3.182442] (-) TimerEvent: {}
+[3.285796] (-) TimerEvent: {}
+[3.389153] (-) TimerEvent: {}
+[3.492588] (-) TimerEvent: {}
+[3.593242] (-) TimerEvent: {}
+[3.698323] (-) TimerEvent: {}
+[3.800126] (-) TimerEvent: {}
+[3.905374] (-) TimerEvent: {}
+[4.010616] (-) TimerEvent: {}
+[4.115595] (-) TimerEvent: {}
+[4.220185] (-) TimerEvent: {}
+[4.320882] (-) TimerEvent: {}
+[4.422908] (-) TimerEvent: {}
+[4.526869] (-) TimerEvent: {}
+[4.629973] (-) TimerEvent: {}
+[4.733370] (-) TimerEvent: {}
+[4.836389] (-) TimerEvent: {}
+[4.937230] (-) TimerEvent: {}
+[5.039350] (-) TimerEvent: {}
+[5.142019] (-) TimerEvent: {}
+[5.244263] (-) TimerEvent: {}
+[5.345096] (-) TimerEvent: {}
+[5.447674] (-) TimerEvent: {}
+[5.549971] (-) TimerEvent: {}
+[5.650403] (-) TimerEvent: {}
+[5.755597] (-) TimerEvent: {}
+[5.861256] (-) TimerEvent: {}
+[5.971340] (-) TimerEvent: {}
+[6.080404] (-) TimerEvent: {}
+[6.188528] (-) TimerEvent: {}
+[6.298683] (-) TimerEvent: {}
+[6.407139] (-) TimerEvent: {}
+[6.512265] (-) TimerEvent: {}
+[6.622482] (-) TimerEvent: {}
+[6.731018] (-) TimerEvent: {}
+[6.836055] (-) TimerEvent: {}
+[6.946139] (-) TimerEvent: {}
+[7.056276] (-) TimerEvent: {}
+[7.166371] (-) TimerEvent: {}
+[7.276481] (-) TimerEvent: {}
+[7.386609] (-) TimerEvent: {}
+[7.496832] (-) TimerEvent: {}
+[7.601434] (-) TimerEvent: {}
+[7.702072] (-) TimerEvent: {}
+[7.804322] (-) TimerEvent: {}
+[7.906906] (-) TimerEvent: {}
+[8.010155] (-) TimerEvent: {}
+[8.110629] (-) TimerEvent: {}
+[8.213425] (-) TimerEvent: {}
+[8.314195] (-) TimerEvent: {}
+[8.417560] (-) TimerEvent: {}
+[8.520736] (-) TimerEvent: {}
+[8.622458] (-) TimerEvent: {}
+[8.725300] (-) TimerEvent: {}
+[8.828687] (-) TimerEvent: {}
+[8.931544] (-) TimerEvent: {}
+[9.032878] (-) TimerEvent: {}
+[9.138269] (-) TimerEvent: {}
+[9.243738] (-) TimerEvent: {}
+[9.348974] (-) TimerEvent: {}
+[9.454484] (-) TimerEvent: {}
+[9.559658] (-) TimerEvent: {}
+[9.664894] (-) TimerEvent: {}
+[9.770220] (-) TimerEvent: {}
+[9.875079] (-) TimerEvent: {}
+[9.979910] (-) TimerEvent: {}
+[10.083648] (-) TimerEvent: {}
+[10.187579] (-) TimerEvent: {}
+[10.291588] (-) TimerEvent: {}
+[10.395986] (-) TimerEvent: {}
+[10.500012] (-) TimerEvent: {}
+[10.603633] (-) TimerEvent: {}
+[10.707635] (-) TimerEvent: {}
+[10.808956] (-) TimerEvent: {}
+[10.912605] (-) TimerEvent: {}
+[11.016293] (-) TimerEvent: {}
+[11.116971] (-) TimerEvent: {}
+[11.219610] (-) TimerEvent: {}
+[11.322491] (-) TimerEvent: {}
+[11.425699] (-) TimerEvent: {}
+[11.528820] (-) TimerEvent: {}
+[11.630664] (-) TimerEvent: {}
+[11.731097] (-) TimerEvent: {}
+[11.832735] (-) TimerEvent: {}
+[11.933476] (-) TimerEvent: {}
+[12.038245] (-) TimerEvent: {}
+[12.143309] (-) TimerEvent: {}
+[12.157007] (tf2_demo_cpp) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[12.225714] (tf2_demo_cpp) StdoutLine: {'line': b'-- Found tf2: 0.25.19 (/opt/ros/humble/share/tf2/cmake)\n'}
+[12.244842] (tf2_demo_cpp) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.19 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[12.245025] (-) TimerEvent: {}
+[12.338817] (tf2_demo_cpp) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[12.345771] (-) TimerEvent: {}
+[12.424661] (tf2_demo_cpp) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[12.424915] (tf2_demo_cpp) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[12.424989] (tf2_demo_cpp) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[12.426132] (tf2_demo_cpp) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[12.427297] (tf2_demo_cpp) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[12.427418] (tf2_demo_cpp) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[12.428159] (tf2_demo_cpp) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[12.429806] (tf2_demo_cpp) StdoutLine: {'line': b'-- Configuring done\n'}
+[12.446094] (-) TimerEvent: {}
+[12.451516] (tf2_demo_cpp) StdoutLine: {'line': b'-- Generating done\n'}
+[12.458012] (tf2_demo_cpp) StdoutLine: {'line': b'-- Build files have been written to: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/build/tf2_demo_cpp\n'}
+[12.487521] (tf2_demo_cpp) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/dynamic_broadcaster.dir/src/dynamic_broadcaster.cpp.o\x1b[0m\n'}
+[12.488467] (tf2_demo_cpp) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/listener.dir/src/listener.cpp.o\x1b[0m\n'}
+[12.546270] (-) TimerEvent: {}
+[12.648813] (-) TimerEvent: {}
+[12.749849] (-) TimerEvent: {}
+[12.850177] (-) TimerEvent: {}
+[12.953439] (-) TimerEvent: {}
+[13.055755] (-) TimerEvent: {}
+[13.166156] (-) TimerEvent: {}
+[13.276454] (-) TimerEvent: {}
+[13.386748] (-) TimerEvent: {}
+[13.496968] (-) TimerEvent: {}
+[13.606211] (-) TimerEvent: {}
+[13.714846] (-) TimerEvent: {}
+[13.815690] (-) TimerEvent: {}
+[13.916775] (-) TimerEvent: {}
+[14.019094] (-) TimerEvent: {}
+[14.121352] (-) TimerEvent: {}
+[14.223590] (-) TimerEvent: {}
+[14.324170] (-) TimerEvent: {}
+[14.429104] (-) TimerEvent: {}
+[14.533863] (-) TimerEvent: {}
+[14.641416] (-) TimerEvent: {}
+[14.747407] (-) TimerEvent: {}
+[14.850474] (-) TimerEvent: {}
+[14.957313] (-) TimerEvent: {}
+[15.064826] (-) TimerEvent: {}
+[15.172682] (-) TimerEvent: {}
+[15.280397] (-) TimerEvent: {}
+[15.381140] (-) TimerEvent: {}
+[15.483708] (-) TimerEvent: {}
+[15.586341] (-) TimerEvent: {}
+[15.689212] (-) TimerEvent: {}
+[15.789822] (-) TimerEvent: {}
+[15.890407] (-) TimerEvent: {}
+[15.997409] (-) TimerEvent: {}
+[16.100586] (-) TimerEvent: {}
+[16.207385] (-) TimerEvent: {}
+[16.314881] (-) TimerEvent: {}
+[16.422538] (-) TimerEvent: {}
+[16.523038] (-) TimerEvent: {}
+[16.573407] (tf2_demo_cpp) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable listener\x1b[0m\n'}
+[16.623238] (-) TimerEvent: {}
+[16.723910] (-) TimerEvent: {}
+[16.824570] (-) TimerEvent: {}
+[16.925567] (-) TimerEvent: {}
+[17.026498] (-) TimerEvent: {}
+[17.111677] (tf2_demo_cpp) StdoutLine: {'line': b'[ 75%] Built target listener\n'}
+[17.126755] (-) TimerEvent: {}
+[17.229588] (-) TimerEvent: {}
+[17.330447] (-) TimerEvent: {}
+[17.341016] (tf2_demo_cpp) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable dynamic_broadcaster\x1b[0m\n'}
+[17.432634] (-) TimerEvent: {}
+[17.534898] (-) TimerEvent: {}
+[17.637452] (-) TimerEvent: {}
+[17.705161] (tf2_demo_cpp) StdoutLine: {'line': b'[100%] Built target dynamic_broadcaster\n'}
+[17.716250] (tf2_demo_cpp) CommandEnded: {'returncode': 0}
+[17.716944] (tf2_demo_cpp) JobProgress: {'identifier': 'tf2_demo_cpp', 'progress': 'install'}
+[17.728151] (tf2_demo_cpp) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/build/tf2_demo_cpp'], 'cwd': '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/build/tf2_demo_cpp', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'rajasbhatnagar'), ('GIT_ASKPASS', '/home/rajasbhatnagar/.vscode-server/bin/e7fb5e96c0730b9deb70b33781f98e2f35975036/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/rajasbhatnagar'), ('OLDPWD', '/home/rajasbhatnagar'), ('TERM_PROGRAM_VERSION', '1.114.0'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-508452a8-c496-44bb-9379-cab049760da2.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/rajasbhatnagar/.vscode-server/bin/e7fb5e96c0730b9deb70b33781f98e2f35975036/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/rajasbhatnagar/.vscode-server/bin/e7fb5e96c0730b9deb70b33781f98e2f35975036/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'rajasbhatnagar'), ('NAME', 'rajas'), ('WSL_INTEROP', '/run/WSL/2291_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/rajasbhatnagar/.vscode-server/bin/e7fb5e96c0730b9deb70b33781f98e2f35975036/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/rajas/AppData/Local/Programs/Microsoft VS Code:/mnt/c/Program Files (x86)/Rockwell Software/RSCommon:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp:/mnt/c/Program Files/Python311/Scripts/:/mnt/c/Program Files/Python311/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/d/MATLAB/bin:/mnt/c/mingw64/bin:/mnt/d/flutter/bin:/mnt/c/:/mnt/d/andriod studio flutter/Git/cmd:/mnt/c/Git/bin:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Users/rajas/OneDrive/Desktop/mlsc project 2025/LOGO_GENERATOR/team-logo-generator/msys2 folder/mingw64/bin/libcairo-2.dll:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA app/NvDLISR:/mnt/c/mingw64/bin:/mnt/c/Program Files/NVIDIA Corporation/Nsight Compute 2025.1.1/:/mnt/c/msys64/mingw64/bin:/mnt/c/msys64/mingw64/bin/python.exe:/mnt/c/Program Files (x86)/Common Files/Rockwell/:/mnt/c/Program Files/Cloudflare/Cloudflare WARP/:/mnt/c/Users/rajas/AppData/Local/Programs/Python/Python39-32/Scripts/:/mnt/c/Users/rajas/AppData/Local/Programs/Python/Python39-32/:/mnt/c/Users/rajas/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/rajas/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/d/andriod studio flutter/flutter/bin:/mnt/c/Users/rajas/AppData/Local/GitHubDesktop/bin:/mnt/d/mongo/:/mnt/c/Users/rajas/AppData/Local/Microsoft/WinGet/Links:/mnt/c/Users/rajas/AppData/Roaming/npm:/mnt/c/Users/rajas/AppData/Roaming/Python/Python311/Scripts/wheel.exe:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin:/mnt/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/libnvvp:/mnt/c/Users/rajas/OneDrive/Desktop/aria2 (drdo)/aria2-1.37.0-win-64bit-build1:/mnt/c/Users/rajas/AppData/Roaming/Python/Python311/Scripts:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-ccd3e3b96d.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/build/tf2_demo_cpp'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp:/opt/ros/humble'), ('WSLENV', 'VSCODE_WSL_EXT_LOCATION/up')]), 'shell': False}
+[17.731905] (tf2_demo_cpp) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[17.732103] (tf2_demo_cpp) StdoutLine: {'line': b'-- Installing: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/lib/tf2_demo_cpp/dynamic_broadcaster\n'}
+[17.733040] (tf2_demo_cpp) StdoutLine: {'line': b'-- Set runtime path of "/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/lib/tf2_demo_cpp/dynamic_broadcaster" to ""\n'}
+[17.733130] (tf2_demo_cpp) StdoutLine: {'line': b'-- Installing: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/lib/tf2_demo_cpp/listener\n'}
+[17.733332] (tf2_demo_cpp) StdoutLine: {'line': b'-- Set runtime path of "/home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/lib/tf2_demo_cpp/listener" to ""\n'}
+[17.733695] (tf2_demo_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/ament_index/resource_index/package_run_dependencies/tf2_demo_cpp\n'}
+[17.733826] (tf2_demo_cpp) StdoutLine: {'line': b'-- Installing: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/ament_index/resource_index/parent_prefix_path/tf2_demo_cpp\n'}
+[17.734265] (tf2_demo_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/environment/ament_prefix_path.sh\n'}
+[17.734601] (tf2_demo_cpp) StdoutLine: {'line': b'-- Installing: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/environment/ament_prefix_path.dsv\n'}
+[17.734651] (tf2_demo_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/environment/path.sh\n'}
+[17.734686] (tf2_demo_cpp) StdoutLine: {'line': b'-- Installing: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/environment/path.dsv\n'}
+[17.734874] (tf2_demo_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/local_setup.bash\n'}
+[17.735139] (tf2_demo_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/local_setup.sh\n'}
+[17.735220] (tf2_demo_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/local_setup.zsh\n'}
+[17.735441] (tf2_demo_cpp) StdoutLine: {'line': b'-- Installing: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/local_setup.dsv\n'}
+[17.735489] (tf2_demo_cpp) StdoutLine: {'line': b'-- Installing: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/package.dsv\n'}
+[17.735694] (tf2_demo_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/ament_index/resource_index/packages/tf2_demo_cpp\n'}
+[17.735783] (tf2_demo_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/cmake/tf2_demo_cppConfig.cmake\n'}
+[17.735820] (tf2_demo_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/cmake/tf2_demo_cppConfig-version.cmake\n'}
+[17.735851] (tf2_demo_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/rajasbhatnagar/projects/warehouse_amr_ros2/ros2_ws/install/tf2_demo_cpp/share/tf2_demo_cpp/package.xml\n'}
+[17.738210] (tf2_demo_cpp) CommandEnded: {'returncode': 0}
+[17.738817] (-) TimerEvent: {}
+[17.768774] (tf2_demo_cpp) JobEnded: {'identifier': 'tf2_demo_cpp', 'rc': 0}
+[17.769788] (-) EventReactorShutdown: {}
