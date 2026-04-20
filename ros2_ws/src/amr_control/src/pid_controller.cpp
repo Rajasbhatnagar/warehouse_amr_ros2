@@ -42,15 +42,21 @@ private:
   void targetCallback(const geometry_msgs::msg::Twist::SharedPtr msg)
   {
     target_ = *msg;
+    has_target_ = true;
   }
 
   void feedbackCallback(const geometry_msgs::msg::Twist::SharedPtr msg)
   {
     feedback_ = *msg;
+    has_feedback_ = true;
   }
 
   void controlLoop()
   {
+    if (!has_target_ || !has_feedback_) {
+      return;
+    }
+
     const double dt = kControlLoopPeriodSeconds;
 
     const double linear_error = target_.linear.x - feedback_.linear.x;
@@ -89,6 +95,8 @@ private:
 
   geometry_msgs::msg::Twist target_;
   geometry_msgs::msg::Twist feedback_;
+  bool has_target_{false};
+  bool has_feedback_{false};
 
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr target_sub_;
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr feedback_sub_;
