@@ -1,0 +1,5 @@
+task_manager:
+  ros__parameters:
+    goal_frame: map
+    publish_period_seconds: 6.0
+    waypoints: [0.0, 0.0, 3.0, 1.0, 3.0, -1.0, 0.0, 0.0]

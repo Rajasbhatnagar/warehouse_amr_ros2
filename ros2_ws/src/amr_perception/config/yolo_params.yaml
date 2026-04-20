@@ -1,0 +1,6 @@
+yolo_perception_node:
+  ros__parameters:
+    model_path: models/yolov11_warehouse.pt
+    confidence_threshold: 0.45
+    publish_rate_hz: 5.0
+    target_classes: [person, box, pallet]

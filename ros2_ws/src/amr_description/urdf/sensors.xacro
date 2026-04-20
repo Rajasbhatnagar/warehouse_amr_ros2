@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="amr_sensors" params="base_length base_height camera_front_offset">
+    <link name="lidar_link">
+      <visual>
+        <geometry><cylinder radius="0.04" length="0.05"/></geometry>
+        <material name="sensor_blue"/>
+      </visual>
+      <collision>
+        <geometry><cylinder radius="0.04" length="0.05"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.3"/>
+        <inertia ixx="0.0004" ixy="0.0" ixz="0.0" iyy="0.0004" iyz="0.0" izz="0.0002"/>
+      </inertial>
+    </link>
+
+    <joint name="lidar_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="lidar_link"/>
+      <origin xyz="0 0 ${base_height + 0.06}"/>
+    </joint>
+
+    <link name="camera_link">
+      <visual>
+        <geometry><box size="0.06 0.03 0.03"/></geometry>
+        <material name="sensor_blue"/>
+      </visual>
+      <collision>
+        <geometry><box size="0.06 0.03 0.03"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.15"/>
+        <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+      </inertial>
+    </link>
+
+    <joint name="camera_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="camera_link"/>
+      <origin xyz="${base_length/2.0 - camera_front_offset} 0 ${base_height + 0.08}"/>
+    </joint>
+  </xacro:macro>
+</robot>
