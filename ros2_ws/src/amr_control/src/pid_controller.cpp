@@ -22,6 +22,8 @@ public:
     kd_ = this->declare_parameter<double>("kd", 0.1);
     max_linear_output_ = this->declare_parameter<double>("max_linear_output", 0.3);
     max_angular_output_ = this->declare_parameter<double>("max_angular_output", 0.8);
+    linear_integral_limit_ = this->declare_parameter<double>("linear_integral_limit", 1.0);
+    angular_integral_limit_ = this->declare_parameter<double>("angular_integral_limit", 1.0);
 
     target_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
       "/target_velocity", 10,
@@ -60,11 +62,13 @@ private:
     const double dt = kControlLoopPeriodSeconds;
 
     const double linear_error = target_.linear.x - feedback_.linear.x;
-    linear_integral_ += linear_error * dt;
+    linear_integral_ = std::clamp(
+      linear_integral_ + linear_error * dt, -linear_integral_limit_, linear_integral_limit_);
     const double linear_derivative = (linear_error - previous_linear_error_) / dt;
 
     const double angular_error = target_.angular.z - feedback_.angular.z;
-    angular_integral_ += angular_error * dt;
+    angular_integral_ = std::clamp(
+      angular_integral_ + angular_error * dt, -angular_integral_limit_, angular_integral_limit_);
     const double angular_derivative = (angular_error - previous_angular_error_) / dt;
 
     geometry_msgs::msg::Twist cmd;
@@ -87,6 +91,8 @@ private:
   double kd_;
   double max_linear_output_;
   double max_angular_output_;
+  double linear_integral_limit_;
+  double angular_integral_limit_;
 
   double linear_integral_{0.0};
   double angular_integral_{0.0};

@@ -33,7 +33,13 @@ public:
     detected_objects_pub_ = this->create_publisher<geometry_msgs::msg::PoseArray>(
       "/detected_objects", 10);
 
-    auto period = std::chrono::duration<double>(1.0 / std::max(kMinPublishRateHz, publish_rate_hz_));
+    const double effective_publish_rate_hz = std::max(kMinPublishRateHz, publish_rate_hz_);
+    if (publish_rate_hz_ <= 0.0) {
+      RCLCPP_WARN(this->get_logger(),
+        "publish_rate_hz must be positive; clamping to %.2f Hz", kMinPublishRateHz);
+    }
+
+    auto period = std::chrono::duration<double>(1.0 / effective_publish_rate_hz);
     timer_ = this->create_wall_timer(
       std::chrono::duration_cast<std::chrono::milliseconds>(period),
       std::bind(&YoloPerceptionNode::publishDetections, this));
