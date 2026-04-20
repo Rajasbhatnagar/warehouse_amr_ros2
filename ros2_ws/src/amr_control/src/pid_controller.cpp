@@ -7,6 +7,11 @@
 
 using namespace std::chrono_literals;
 
+namespace
+{
+constexpr double kControlLoopPeriodSeconds = 0.05;
+}
+
 class PIDControllerNode : public rclcpp::Node
 {
 public:
@@ -27,7 +32,10 @@ public:
       std::bind(&PIDControllerNode::feedbackCallback, this, std::placeholders::_1));
 
     cmd_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
-    timer_ = this->create_wall_timer(50ms, std::bind(&PIDControllerNode::controlLoop, this));
+    timer_ = this->create_wall_timer(
+      std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::duration<double>(kControlLoopPeriodSeconds)),
+      std::bind(&PIDControllerNode::controlLoop, this));
   }
 
 private:
@@ -43,7 +51,7 @@ private:
 
   void controlLoop()
   {
-    const double dt = 0.05;
+    const double dt = kControlLoopPeriodSeconds;
 
     const double linear_error = target_.linear.x - feedback_.linear.x;
     linear_integral_ += linear_error * dt;

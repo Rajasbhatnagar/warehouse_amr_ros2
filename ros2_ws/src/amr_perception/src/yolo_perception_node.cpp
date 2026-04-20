@@ -8,6 +8,11 @@
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/image.hpp"
 
+namespace
+{
+constexpr double kMinPublishRateHz = 1.0;
+}
+
 class YoloPerceptionNode : public rclcpp::Node
 {
 public:
@@ -26,7 +31,7 @@ public:
     detected_objects_pub_ = this->create_publisher<geometry_msgs::msg::PoseArray>(
       "/detected_objects", 10);
 
-    auto period = std::chrono::duration<double>(1.0 / std::max(1.0, publish_rate_hz_));
+    auto period = std::chrono::duration<double>(1.0 / std::max(kMinPublishRateHz, publish_rate_hz_));
     timer_ = this->create_wall_timer(
       std::chrono::duration_cast<std::chrono::milliseconds>(period),
       std::bind(&YoloPerceptionNode::publishDetections, this));
