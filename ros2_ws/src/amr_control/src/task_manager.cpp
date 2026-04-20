@@ -8,6 +8,11 @@
 
 using namespace std::chrono_literals;
 
+namespace
+{
+constexpr double kDefaultWaypointPublishPeriodSeconds = 6.0;
+}
+
 class TaskManagerNode : public rclcpp::Node
 {
 public:
@@ -17,7 +22,8 @@ public:
       "waypoints",
       std::vector<double>{0.0, 0.0, 3.0, 1.0, 3.0, -1.0, 0.0, 0.0});
     frame_id_ = this->declare_parameter<std::string>("goal_frame", "map");
-    publish_period_seconds_ = this->declare_parameter<double>("publish_period_seconds", 6.0);
+    publish_period_seconds_ = this->declare_parameter<double>(
+      "publish_period_seconds", kDefaultWaypointPublishPeriodSeconds);
 
     goal_pub_ = this->create_publisher<geometry_msgs::msg::PoseStamped>("/goal_pose", 10);
     timer_ = this->create_wall_timer(

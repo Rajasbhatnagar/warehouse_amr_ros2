@@ -11,6 +11,7 @@
 namespace
 {
 constexpr double kMinPublishRateHz = 1.0;
+constexpr double kDefaultConfidenceThreshold = 0.45;
 }
 
 class YoloPerceptionNode : public rclcpp::Node
@@ -19,7 +20,8 @@ public:
   YoloPerceptionNode() : Node("yolo_perception_node")
   {
     model_path_ = this->declare_parameter<std::string>("model_path", "models/yolov11_warehouse.pt");
-    confidence_threshold_ = this->declare_parameter<double>("confidence_threshold", 0.45);
+    confidence_threshold_ = this->declare_parameter<double>(
+      "confidence_threshold", kDefaultConfidenceThreshold);
     publish_rate_hz_ = this->declare_parameter<double>("publish_rate_hz", 5.0);
     target_classes_ = this->declare_parameter<std::vector<std::string>>(
       "target_classes", std::vector<std::string>{"person", "box", "pallet"});
