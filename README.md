@@ -22,6 +22,26 @@
 
 ---
 
+## 📌 Current Repository Status
+
+This repository now contains a ROS2 workspace under `ros2_ws/` with a scaffolded full-stack AMR architecture:
+
+- `amr_description` (modular Xacro robot model)
+- `amr_gazebo` (warehouse world + spawn launch)
+- `amr_navigation` (SLAM/localization/navigation launch + configs)
+- `amr_perception` (YOLO integration interface node + params)
+- `amr_control` (PID controller + waypoint task manager)
+- `amr_bringup` (full-system launch orchestration)
+
+Legacy learning/demo packages are still present:
+
+- `my_robot_description`
+- `tf2_demo_cpp`
+
+> Note: The current perception node is an integration-ready interface scaffold (topic/parameter contract in place), not a full YOLO inference implementation yet.
+
+---
+
 ## 🚀 Why This Project Exists
 
 Modern warehouses are rapidly automating — but most robotic systems still struggle with **dynamic, unpredictable environments**.
@@ -143,58 +163,20 @@ In short: **this is how real robots should behave — not just follow static map
 ## 📁 Package Structure
 
 ```
-warehouse-amr-ros2/
-├── src/
-│   ├── amr_description/          # Robot URDF + Xacro + STL meshes (Fusion 360)
-│   │   ├── urdf/
-│   │   │   ├── robot.urdf.xacro
-│   │   │   ├── sensors.xacro
-│   │   │   └── ros2_control.xacro
-│   │   └── meshes/               # CAD-exported STL files
-│   │
-│   ├── amr_gazebo/               # Simulation worlds + launch files
-│   │   ├── worlds/
-│   │   │   └── warehouse_world.sdf
-│   │   └── launch/
-│   │       └── gazebo.launch.py
-│   │
-│   ├── amr_navigation/           # Nav2 config + SLAM + launch files
-│   │   ├── config/
-│   │   │   ├── nav2_params.yaml
-│   │   │   ├── slam_params.yaml
-│   │   │   └── amcl_params.yaml
-│   │   ├── maps/
-│   │   │   ├── warehouse_map.pgm
-│   │   │   └── warehouse_map.yaml
-│   │   └── launch/
-│   │       ├── slam.launch.py
-│   │       └── navigation.launch.py
-│   │
-│   ├── amr_perception/           # YOLOv11 ROS2 perception node
-│   │   ├── src/
-│   │   │   └── yolo_perception_node.cpp
-│   │   └── config/
-│   │       └── yolo_params.yaml
-│   │
-│   ├── amr_control/              # PID controller + task manager
-│   │   ├── src/
-│   │   │   ├── pid_controller.cpp
-│   │   │   └── task_manager.cpp
-│   │   └── include/
-│   │
-│   └── amr_bringup/              # Full system launch
-│       └── launch/
-│           └── full_system.launch.py
-│
-├── docker/
-│   ├── Dockerfile
-│   └── docker-compose.yml
-│
-└── demo/
-    ├── full_demo.mp4
-    ├── slam_mapping.gif
-    ├── nav2_waypoints.gif
-    └── yolo_avoidance.gif
+warehouse_amr_ros2/
+├── ros2_ws/
+│   └── src/
+│       ├── amr_description/      # Modular Xacro robot model + sensors + ros2_control
+│       ├── amr_gazebo/           # Gazebo world + simulation launch
+│       ├── amr_navigation/       # Nav2/SLAM/localization configs + launches
+│       ├── amr_perception/       # Perception integration node + params
+│       ├── amr_control/          # PID controller + waypoint task manager
+│       ├── amr_bringup/          # Full system orchestration launch
+│       ├── my_robot_description/ # Legacy demo package
+│       └── tf2_demo_cpp/         # Legacy TF2 demo package
+├── docs/
+│   └── integration_contracts.md  # Topics, frames, and integration boundaries
+└── README.md
 ```
 
 ---
@@ -246,6 +228,7 @@ sudo apt install ros-humble-gazebo-ros-pkgs \
 ```bash
 git clone https://github.com/[your-username]/warehouse-amr-ros2.git
 cd warehouse-amr-ros2
+cd ros2_ws
 
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
@@ -270,7 +253,7 @@ docker run -it \
 ### 1. Launch Full Simulation
 
 ```bash
-ros2 launch amr_bringup full_system.launch.py
+ros2 launch amr_bringup full_system.launch.py mode:=mission
 ```
 
 ### 2. Build a Map (SLAM Mode)
@@ -283,13 +266,14 @@ ros2 launch amr_navigation slam.launch.py
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 # Save when done
-ros2 run nav2_map_server map_saver_cli -f maps/warehouse_map
+ros2 run nav2_map_server map_saver_cli -f src/amr_navigation/maps/warehouse_map
 ```
 
 ### 3. Autonomous Navigation
 
 ```bash
-ros2 launch amr_navigation navigation.launch.py map:=maps/warehouse_map.yaml
+ros2 launch amr_navigation navigation.launch.py \
+  map:=$(ros2 pkg prefix amr_navigation)/share/amr_navigation/maps/warehouse_map.yaml
 
 # Send a goal from terminal
 ros2 topic pub /goal_pose geometry_msgs/PoseStamped \
@@ -300,7 +284,8 @@ ros2 topic pub /goal_pose geometry_msgs/PoseStamped \
 
 ```bash
 # Navigates: Entrance → Shelf A → Shelf B → Home
-ros2 run amr_control task_manager
+ros2 run amr_control task_manager --ros-args \
+  --params-file $(ros2 pkg prefix amr_control)/share/amr_control/config/task_manager.yaml
 ```
 
 ### 5. Enable YOLO Perception
